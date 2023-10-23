@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product List</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h1>Product List</h1>
+  <table>
+    <tr>
+      <th>SKU</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Size (MB)</th>
+    </tr>
+    <?php
+    $products = get_product_list();
+    foreach ($products as $product) {
+    ?>
+    <tr>
+      <td><?php echo $product['sku']; ?></td>
+      <td><?php echo $product['name']; ?></td>
+      <td>$<?php echo $product['price']; ?></td>
+      <td><?php echo $product['size']; ?></td>
+    </tr>
+    <?php
+    }
+    ?>
+  </table>
+  <a href="add_product.php">Add Product</a>
+</body>
+</html>
